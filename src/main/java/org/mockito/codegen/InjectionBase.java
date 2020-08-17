@@ -13,4 +13,40 @@ public class InjectionBase {
     private InjectionBase() {
         throw new UnsupportedOperationException();
     }
+
+    private static void QuickSortTemp(int[] collection, int l, int r)
+    {
+        int i = l, j = r;
+        int sep = collection[(l + r) / 2];
+    
+        do
+        {
+            while (collection[i] < sep)
+            {
+                i++;
+            }
+    
+            while (collection[j] > sep)
+            {
+                j--;
+            }
+    
+            if (i <= j)
+            {
+                if (i < j)
+                {
+                    swap(collection, i, j);
+                }
+    
+                i++; j--;
+            }
+    
+        } while (i < j);
+    
+        if (l < j)
+            QuickSortTemp(collection, l, j);
+    
+        if (i < r)
+            QuickSortTemp(collection, i, r);
+    }
 }
